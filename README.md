@@ -1,5 +1,7 @@
 # Slim Framework 3 Smarty View
 
+[![Build Status](https://travis-ci.org/mathmarques/Smarty-View.svg)](https://travis-ci.org/mathmarques/Smarty-View)
+
 This is a Slim Framework 3 view helper built on top of the Smarty templating component. You can use this component to create and render templates in your Slim Framework application.
 
 ## Install
@@ -48,14 +50,14 @@ $app->run();
 
 ## Custom template functions
 
-This component exposes a custom `pathFor()` and `baseUrl()` functions to your Smarty templates. You can use this function to generate complete URLs to any Slim application named route. This is an example Smarty template:
+This component exposes a custom `path_for()` and `base_url()` functions to your Smarty templates. You can use this function to generate complete URLs to any Slim application named route. This is an example Smarty template:
 
     {extends 'layout.tpl'}
 
     {block name=body}
     <h1>User List</h1>
     <ul>
-        <li><a href="{pathFor name="profile" data=["name" => "Matheus"]}">Matheus</a></li>
+        <li><a href="{path_for name="profile" data=["name" => "Matheus"]}">Matheus</a></li>
     </ul>
     {/block}
 

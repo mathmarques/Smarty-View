@@ -71,8 +71,8 @@ class Smarty implements \ArrayAccess
     public function addSlimPlugins(RouterInterface $router, $uri)
     {
         $smartyPlugins = new SmartyPlugins($router, $uri);
-        $this->smarty->registerPlugin('function', 'pathFor', [$smartyPlugins, 'pathFor']);
-        $this->smarty->registerPlugin('function', 'baseUrl', [$smartyPlugins, 'baseUrl']);
+        $this->smarty->registerPlugin('function', 'path_for', [$smartyPlugins, 'pathFor']);
+        $this->smarty->registerPlugin('function', 'base_url', [$smartyPlugins, 'baseUrl']);
     }
 
 
