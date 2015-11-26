@@ -65,8 +65,8 @@ class Smarty implements \ArrayAccess
     /**
      * Method to add the Slim plugins to Smarty
      *
-     * @param RouterInterface $router A single extension instance or an array of instances
-     * @param string|\Slim\Http\Uri
+     * @param RouterInterface $router
+     * @param string|\Slim\Http\Uri $uri
      */
     public function addSlimPlugins(RouterInterface $router, $uri)
     {
