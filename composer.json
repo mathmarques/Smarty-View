@@ -2,7 +2,7 @@
     "name": "mathmarques/smarty-view",
     "type": "library",
     "description": "Slim Framework 3 view helper built on top of the Smarty templating component",
-    "keywords": ["slim","framework","view","template","smarty"],
+    "keywords": ["slim","framework","view","template","smarty", "slim 3"],
     "license": "MIT",
     "authors": [
         {

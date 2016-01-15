@@ -50,7 +50,9 @@ $app->run();
 
 ## Custom template functions
 
-This component exposes a custom `path_for()` and `base_url()` functions to your Smarty templates. You can use this function to generate complete URLs to any Slim application named route. This is an example Smarty template:
+This component exposes a custom `path_for()` and `base_url()` functions to your Smarty templates.
+
+You can use `path_for()` function to generate complete URLs to any Slim application named route. This is an example Smarty template:
 
     {extends 'layout.tpl'}
 
