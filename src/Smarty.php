@@ -3,6 +3,7 @@ namespace Slim\Views;
 
 use Psr\Http\Message\ResponseInterface;
 use Slim\Interfaces\RouterInterface;
+use SmartyException;
 
 /**
  * Smarty View
@@ -67,6 +68,8 @@ class Smarty implements \ArrayAccess
      *
      * @param RouterInterface $router
      * @param string|\Slim\Http\Uri $uri
+     *
+     * @deprecated Deprecated since version 1.1.0. Use registerPlugin instead.
      */
     public function addSlimPlugins(RouterInterface $router, $uri)
     {
@@ -75,6 +78,23 @@ class Smarty implements \ArrayAccess
         $this->smarty->registerPlugin('function', 'base_url', [$smartyPlugins, 'baseUrl']);
     }
 
+    /**
+     * Proxy method to register a plugin to Smarty
+     *
+     * @param  string $type plugin type
+     * @param  string $tag name of template tag
+     * @param  callback $callback PHP callback to register
+     * @param  boolean $cacheable if true (default) this function is cachable
+     * @param  array $cache_attr caching attributes if any
+     *
+     * @return self
+     *
+     * @throws SmartyException when the plugin tag is invalid
+     */
+    public function registerPlugin($type, $tag, $callback, $cacheable = true, $cache_attr = null)
+    {
+        $this->smarty->registerPlugin($type, $tag, $callback, $cacheable, $cache_attr);
+    }
 
     /**
      * Fetch rendered template
