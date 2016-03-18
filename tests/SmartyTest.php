@@ -14,7 +14,15 @@ class SmartyTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->view = new Smarty(dirname(__FILE__) . '/templates');
+        $mockRouter = $this->getMockBuilder('Slim\Router')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->view = new Smarty(dirname(__FILE__) . '/templates', [
+            'compileDir' => dirname(__FILE__) . '/templates_c'
+        ]);
+
+        $this->view->addSlimPlugins($mockRouter, 'base_url_test');
     }
 
     public function testFetch()
@@ -49,5 +57,12 @@ class SmartyTest extends \PHPUnit_Framework_TestCase
             'name' => 'Matheus'
         ]);
         $this->assertInstanceOf('Psr\Http\Message\ResponseInterface', $response);
+    }
+
+    public function testPlugin()
+    {
+        $output = $this->view->fetch('plugin.tpl');
+
+        $this->assertEquals("<p>Plugin return: base_url_test.</p>\n", $output);
     }
 }
