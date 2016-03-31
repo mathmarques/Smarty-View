@@ -69,7 +69,7 @@ class Smarty implements \ArrayAccess
      * @param RouterInterface $router
      * @param string|\Slim\Http\Uri $uri
      *
-     * @deprecated Deprecated since version 1.1.0. Use registerPlugin instead.
+     * @deprecated Deprecated since version 1.1.0. Use registerPlugin instead. See README for more info.
      */
     public function addSlimPlugins(RouterInterface $router, $uri)
     {
