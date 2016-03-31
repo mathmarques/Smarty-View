@@ -1,6 +1,6 @@
 # Slim Framework 3 Smarty View
 
-[![Build Status](https://travis-ci.org/mathmarques/Smarty-View.svg)](https://travis-ci.org/mathmarques/Smarty-View)[![Latest Stable Version](https://poser.pugx.org/mathmarques/smarty-view/v/stable)](https://packagist.org/packages/mathmarques/smarty-view)[![Total Downloads](https://poser.pugx.org/mathmarques/smarty-view/downloads)](https://packagist.org/packages/mathmarques/smarty-view)[![License](https://poser.pugx.org/mathmarques/smarty-view/license)](https://packagist.org/packages/mathmarques/smarty-view)
+[![Build Status](https://travis-ci.org/mathmarques/Smarty-View.svg)](https://travis-ci.org/mathmarques/Smarty-View) [![Latest Stable Version](https://poser.pugx.org/mathmarques/smarty-view/v/stable)](https://packagist.org/packages/mathmarques/smarty-view) [![Total Downloads](https://poser.pugx.org/mathmarques/smarty-view/downloads)](https://packagist.org/packages/mathmarques/smarty-view) [![License](https://poser.pugx.org/mathmarques/smarty-view/license)](https://packagist.org/packages/mathmarques/smarty-view)
 
 This is a Slim Framework 3 view helper built on top of the Smarty templating component. You can use this component to create and render templates in your Slim Framework application.
 
