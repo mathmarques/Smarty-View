@@ -19,7 +19,8 @@ class SmartyTest extends \PHPUnit_Framework_TestCase
             ->getMock();
 
         $this->view = new Smarty(dirname(__FILE__) . '/templates', [
-            'compileDir' => dirname(__FILE__) . '/templates_c'
+            'compileDir' => dirname(__FILE__) . '/templates_c',
+            'pluginsDir' => './test'
         ]);
 
         $this->view->addSlimPlugins($mockRouter, 'base_url_test');
@@ -64,5 +65,10 @@ class SmartyTest extends \PHPUnit_Framework_TestCase
         $output = $this->view->fetch('plugin.tpl');
 
         $this->assertEquals("<p>Plugin return: base_url_test.</p>\n", $output);
+    }
+
+    public function testPluginDirs()
+    {
+        $this->assertGreaterThanOrEqual(2, count($this->view->getSmarty()->getPluginsDir()));
     }
 }

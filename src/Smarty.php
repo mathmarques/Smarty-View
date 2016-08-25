@@ -55,7 +55,7 @@ class Smarty implements \ArrayAccess
         }
 
         if (isset($settings['pluginsDir'])) {
-            $this->smarty->setPluginsDir($settings['pluginsDir']);
+            $this->smarty->addPluginsDir($settings['pluginsDir']);
         }
     }
 
