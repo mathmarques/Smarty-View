@@ -83,7 +83,7 @@ class Smarty implements \ArrayAccess
      *
      * @param  string $type plugin type
      * @param  string $tag name of template tag
-     * @param  callback $callback PHP callback to register
+     * @param  callable $callback PHP callback to register
      * @param  boolean $cacheable if true (default) this function is cachable
      * @param  array $cache_attr caching attributes if any
      *
