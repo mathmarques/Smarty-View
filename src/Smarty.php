@@ -1,8 +1,8 @@
 <?php
 namespace Slim\Views;
 
+use ArrayIterator;
 use Psr\Http\Message\ResponseInterface;
-use Slim\Interfaces\RouterInterface;
 use SmartyException;
 
 /**
@@ -64,47 +64,35 @@ class Smarty implements \ArrayAccess
      *******************************************************************************/
 
     /**
-     * Method to add the Slim plugins to Smarty
-     *
-     * @param RouterInterface $router
-     * @param string|\Slim\Http\Uri $uri
-     *
-     * @deprecated Deprecated since version 1.1.0. Use registerPlugin instead. See README for more info.
-     */
-    public function addSlimPlugins(RouterInterface $router, $uri)
-    {
-        $smartyPlugins = new SmartyPlugins($router, $uri);
-        $this->smarty->registerPlugin('function', 'path_for', [$smartyPlugins, 'pathFor']);
-        $this->smarty->registerPlugin('function', 'base_url', [$smartyPlugins, 'baseUrl']);
-    }
-
-    /**
      * Proxy method to register a plugin to Smarty
      *
-     * @param  string $type plugin type
-     * @param  string $tag name of template tag
-     * @param  callable $callback PHP callback to register
-     * @param  boolean $cacheable if true (default) this function is cachable
-     * @param  array $cache_attr caching attributes if any
+     * @param string $type plugin type
+     * @param string $tag name of template tag
+     * @param callable $callback PHP callback to register
+     * @param boolean $cacheable if true (default) this function is cachable
+     * @param null $cacheAttr caching attributes if any
      *
      * @return self
      *
      * @throws SmartyException when the plugin tag is invalid
      */
-    public function registerPlugin($type, $tag, $callback, $cacheable = true, $cache_attr = null)
+    public function registerPlugin(string $type, string $tag, callable $callback, $cacheable = true, $cacheAttr = null): Smarty
     {
-        $this->smarty->registerPlugin($type, $tag, $callback, $cacheable, $cache_attr);
+        $this->smarty->registerPlugin($type, $tag, $callback, $cacheable, $cacheAttr);
+
+        return $this;
     }
 
     /**
      * Fetch rendered template
      *
-     * @param  string $template Template pathname relative to templates directory
-     * @param  array $data Associative array of template variables
+     * @param string $template Template pathname relative to templates directory
+     * @param array $data Associative array of template variables
      *
      * @return string
+     * @throws SmartyException
      */
-    public function fetch($template, $data = [])
+    public function fetch(string $template, $data = []): string
     {
         $data = array_merge($this->defaultVariables, $data);
 
@@ -117,11 +105,12 @@ class Smarty implements \ArrayAccess
      * Output rendered template
      *
      * @param ResponseInterface $response
-     * @param  string $template Template pathname relative to templates directory
-     * @param  array $data Associative array of template variables
+     * @param string $template Template pathname relative to templates directory
+     * @param array $data Associative array of template variables
      * @return ResponseInterface
+     * @throws SmartyException
      */
-    public function render(ResponseInterface $response, $template, $data = [])
+    public function render(ResponseInterface $response, string $template, $data = []): ResponseInterface
     {
         $response->getBody()->write($this->fetch($template, $data));
 
@@ -137,7 +126,7 @@ class Smarty implements \ArrayAccess
      *
      * @return \Smarty
      */
-    public function getSmarty()
+    public function getSmarty(): \Smarty
     {
         return $this->smarty;
     }
@@ -153,7 +142,7 @@ class Smarty implements \ArrayAccess
      *
      * @return bool
      */
-    public function offsetExists($key)
+    public function offsetExists($key): bool
     {
         return array_key_exists($key, $this->defaultVariables);
     }
@@ -200,7 +189,7 @@ class Smarty implements \ArrayAccess
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->defaultVariables);
     }
@@ -212,10 +201,10 @@ class Smarty implements \ArrayAccess
     /**
      * Get collection iterator
      *
-     * @return \ArrayIterator
+     * @return ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): ArrayIterator
     {
-        return new \ArrayIterator($this->defaultVariables);
+        return new ArrayIterator($this->defaultVariables);
     }
 }
