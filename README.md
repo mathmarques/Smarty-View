@@ -9,7 +9,7 @@ This is a Slim Framework 3 view helper built on top of the Smarty templating com
 Via [Composer](https://getcomposer.org/)
 
 ```bash
-$ composer require mathmarques/smarty-view
+$ composer require mathmarques/smarty-view "^1.1"
 ```
 
 Requires Slim Framework 3 and PHP 5.5.0 or newer.
