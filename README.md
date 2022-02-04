@@ -4,7 +4,7 @@
 
 This is a Slim Framework 4 view helper built on top of the Smarty templating component. You can use this component to create and render templates in your Slim Framework application.
 
-####For Slim Framework 3 see [1.x branch](https://github.com/mathmarques/Smarty-View/tree/1.x)
+#### For Slim Framework 3 see [1.x branch](https://github.com/mathmarques/Smarty-View/tree/1.x)
 
 ## Install
 
