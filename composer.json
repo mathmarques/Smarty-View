@@ -1,14 +1,14 @@
 {
     "name": "mathmarques/smarty-view",
     "type": "library",
-    "description": "Slim Framework 3 view helper built on top of the Smarty templating component",
-    "keywords": ["slim","framework","view","template","smarty", "slim 3"],
+    "description": "Slim Framework 4 view helper built on top of the Smarty templating component",
+    "keywords": ["slim","framework","view","template","smarty", "slim 4"],
     "license": "MIT",
     "authors": [
         {
             "name": "Matheus Marques",
             "email": "matheusocmarques@gmail.com",
-            "homepage": "http://matheusmarques.com"
+            "homepage": "https://matheusmarques.com"
         }
     ],
     "require": {
